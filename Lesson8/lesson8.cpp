@@ -22,14 +22,36 @@ public:
 			denominator = rand() % 100;
 		}
 	}
+	void SetN(int _numerator) //set-ер
+	{
+		numerator = _numerator;
+	}
+	void SetD(int _denominator)
+	{
+		denominator = _denominator;
+	}
+	int GetN() { //get-ер
+		return numerator;
+	}
+	int GetD() {
+		return denominator;
+	}
 };
 
 int main() {
 	Fraction a;
 	a.Input(1, 2);
 	a.Print();
+	a.SetD(100);
+	a.Print();
+	int d = a.GetD();
+	cout << d << endl;
 
 	Fraction b;
 	b.Input();
 	b.Print();
+	b.SetN(100);
+	b.Print();
+	int n = b.GetN();
+	cout << n << endl;
 }
