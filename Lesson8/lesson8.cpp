@@ -8,7 +8,7 @@ class Fraction {
 public:
 	Fraction() {
 		numerator = 0;
-		denominator = 0;
+		denominator = 1;
 	}
 	Fraction(int n, int d)
 	{
