@@ -6,6 +6,15 @@ class Fraction {
 	int numerator;
 	int denominator;
 public:
+	Fraction() {
+		numerator = 0;
+		denominator = 0;
+	}
+	Fraction(int n, int d)
+	{
+		numerator = n;
+		denominator = d;
+	}
 	void Input(int n, int d) {
 		numerator = n;
 		denominator = d;
@@ -22,7 +31,7 @@ public:
 			denominator = rand() % 100;
 		}
 	}
-	void SetN(int _numerator) //set-ер
+	void SetN(int _numerator) 
 	{
 		numerator = _numerator;
 	}
@@ -30,7 +39,7 @@ public:
 	{
 		denominator = _denominator;
 	}
-	int GetN() { //get-ер
+	int GetN() { 
 		return numerator;
 	}
 	int GetD() {
@@ -39,7 +48,7 @@ public:
 };
 
 int main() {
-	Fraction a;
+	/*Fraction a;
 	a.Input(1, 2);
 	a.Print();
 	a.SetD(100);
@@ -53,5 +62,11 @@ int main() {
 	b.SetN(100);
 	b.Print();
 	int n = b.GetN();
-	cout << n << endl;
+	cout << n << endl;*/
+
+	Fraction c;
+	c.Print();
+
+	Fraction d(1, 10);
+	d.Print();
 }
