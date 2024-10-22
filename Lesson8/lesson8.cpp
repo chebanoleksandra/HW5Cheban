@@ -45,28 +45,111 @@ public:
 	int GetD() {
 		return denominator;
 	}
+	Fraction operator+(Fraction& b)
+	{
+		Fraction temp;
+		if (this->denominator == b.denominator)
+		{
+			temp.numerator = this->numerator + b.numerator;
+			temp.denominator = this->denominator;
+		}
+		else
+		{
+			temp.numerator = (this->numerator * b.denominator) + (b.numerator * this->denominator);
+			temp.denominator = this->denominator * b.denominator;
+		}
+		return temp;
+	}
+	Fraction operator+(int b)
+	{
+		Fraction temp;
+		temp.numerator = numerator + (b * denominator);
+		temp.denominator = denominator;
+		return temp;
+	}
+	Fraction operator-(Fraction& b)
+	{
+		Fraction temp;
+		if (this->denominator == b.denominator)
+		{
+			temp.numerator = this->numerator - b.numerator;
+			temp.denominator = this->denominator;
+		}
+		else
+		{
+			temp.numerator = (this->numerator * b.denominator) - (b.numerator * this->denominator);
+			temp.denominator = this->denominator * b.denominator;
+		}
+		return temp;
+	}
+	Fraction operator-(int b)
+	{
+		Fraction temp;
+		temp.numerator = numerator - (b * denominator);
+		temp.denominator = denominator;
+		return temp;
+	}
+	Fraction operator*(Fraction& b)
+	{
+		Fraction temp(numerator * b.numerator, denominator * b.denominator);
+		return temp;
+	}
+	Fraction operator*(int b)
+	{
+		Fraction temp(numerator * b, denominator);
+		return temp;
+	}
+	Fraction operator/(Fraction& b)
+	{
+		Fraction temp(numerator * b.denominator, denominator * b.numerator);
+		return temp;
+	}
+	Fraction operator/(int b)
+	{
+		Fraction temp(numerator, denominator * b);
+		return temp;
+	}
+	Fraction& operator++()
+	{
+		numerator += denominator;
+		return *this;
+	}
+	Fraction operator++(int)
+	{
+		Fraction temp(*this);
+		numerator += denominator;
+		return temp;
+	}
+	Fraction& operator--()
+	{
+		numerator -= denominator;
+		return *this;
+	}
+	Fraction operator--(int)
+	{
+		Fraction temp(*this);
+		numerator -= denominator;
+		return temp;
+	}
 };
 
 int main() {
-	/*Fraction a;
-	a.Input(1, 2);
+	Fraction a(10, 10);
 	a.Print();
-	a.SetD(100);
+	++a;
 	a.Print();
-	int d = a.GetD();
-	cout << d << endl;
-
-	Fraction b;
-	b.Input();
+	Fraction b = a - 5;
 	b.Print();
-	b.SetN(100);
-	b.Print();
-	int n = b.GetN();
-	cout << n << endl;*/
-
-	Fraction c;
+	Fraction c = --a;
 	c.Print();
-
-	Fraction d(1, 10);
+	a.Print();
+	Fraction d = a++;
 	d.Print();
+	a.Print();
+	Fraction e = a * c;
+	e.Print();
+	Fraction g(5, 10);
+	Fraction h(3, 2);
+	Fraction f = g / h;
+	f.Print();
 }
